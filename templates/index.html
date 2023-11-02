@@ -1,0 +1,210 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Pilot Repair</title>
+{% endblock %}
+
+{% block body %}
+
+<section id="header">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="myNavbar">
+        <nav class="container">
+            <a class="navbar-brand judul" href="#"><img src="../static/image/logo.png" alt=""></a>
+            <button id="tombol-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav menu">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Biaya Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <a id="login-collapse" class="mt-3" href="/login">
+                        <button class="btn pt-2 pb-2 tombol">Login<i class="fa-regular fa-user"></i></button>
+                    </a>
+                </ul>
+            </div>
+            {% if session['is_logged_in'] %}
+                <div class="dropdown">
+                    <a class="btn-username dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <p class="username-login">{{ session['username'] }}</p>
+                        <img src="../static/image/profile.jpg" alt="" class="profile-image">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-item">Nama</h6></li>
+                        <li><p class="dropdown-item">{{ session['username'] }}</p></li>
+                        <li><h6 class="dropdown-item">Email Anda</h6></li>
+                        <li><p class="dropdown-item">{{ session['email'] }}</p></li>
+                        <li><h6 class="dropdown-item">Nomor HP</h6></li>
+                        <li><p class="dropdown-item">{{ session['nomor_hp'] }}</p></li>
+                        <div class="container">
+                            <li>
+                                <a href="/logout">
+                                    <button class="btn-logout">Logout <i style="padding-left: 5px;" class="fa-solid fa-right-from-bracket"></i></button>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="/login">
+                    <button class="btn tombol">Login<i class="fa-regular fa-user"></i></button>
+                </a>
+            {% endif %}
+            
+        </nav>
+    </nav>
+</section>
+<!-- hero -->
+<section class="hero container">
+    <div class="">
+        <div class="row">
+            <div class="hero-text">
+                <h1>Smartphone Anda Rusak ?</h1>
+                <p>Kami menyediakan jasa service untuk anda</p>
+                <a href="">
+                    <button class="btn btn-chat"><i class="fa-regular fa-comment-dots"></i>Hubungi Teknisi</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- menu -->
+<section id="card-menu">
+    <div class="card-container container">
+        <div class="card card1 col-md-3">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <div class="card-text">
+                    <h3>HP Second</h3>
+                    <p>Stok Hp Second</p>
+                </div>
+            </div>
+        </div>
+        <div class="card card2 col-md-3">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <div class="card-text">
+                    <h3>Hardware</h3>
+                    <p>Kerusakan Hardware</p>
+                </div>
+            </div>
+        </div>
+        <div class="card card3 col-md-3">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fa-brands fa-windows"></i>
+                </div>
+                <div class="card-text">
+                    <h3>Software</h3>
+                    <p>Kerusakan Software</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="keuntungan">
+    <div class="container container-keuntungan">
+        <div class="icon-judul">
+            <img src="../static/image/icon/bintang.png">
+            <h1>Keuntungan Pilot Repair</h1>
+            <img src="../static/image/icon/bintang.png">
+        </div>
+        <p class="p-keuntungan">Beberapa keuntungan yang bisa Anda dapatkan</p>
+        <div class="col-12 list-keuntungan">
+            <div class="row">
+                <div class="col-3">
+                    <img src="../static/image/icon/icon-keuntungan4.png">
+                    <h2>Teknisi Handal</h2>
+                    <p>Teknisi kami adalah tim yang handal dan sudah tersertifikasi</p>
+                </div>
+                <div class="col-3">
+                    <img src="../static/image/icon/icon-keuntungan1.png">
+                    <h2>Harga Terjangkau</h2>
+                    <p>Kami menawarkan perbaikan HP berkualitas dengan harga yang ramah di kantong.</p>
+                </div>
+                <div class="col-3">
+                    <img src="../static/image/icon/icon-keuntungan2.png">
+                    <h2>Konsultasi Gratis</h2>
+                    <p>Konsultasi gratis untuk layanan HP yang andal dan terpercaya.</p>
+                </div>
+                <div class="col-3">
+                    <img src="../static/image/icon/icon-keuntungan3.png">
+                    <h2>Datang Ke Rumah</h2>
+                    <p>Kemudahan layanan servis teknis, datang ke rumah Anda untuk kenyamanan terbaik</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="lcd">
+    <div class="container lcd col-12">
+        <div class="row">
+            <div class="col-6 teks">
+                <h1>Ganti LCD mulai dari <br> <span>Rp. 200.000</span></h1>
+                <p>Dengan budget mulai dari Rp. 200.000, Anda dapat mengembalikan tampilan layar ponsel yang rusak menjadi baru dan berkualitas. Ada bonus menarik jika anda memilih layanan kami. </p>
+                <h4>Bonus :</h4>
+                <div class="bonus row">
+                    <div class="col-4 card" style="margin-left: 10px;">
+                        <div class="row">
+                            <div class="col-4" text-align ="center">
+                                <img src="../static/image/icon/tempered-glass.png" alt="">
+                            </div>
+                            <div class="col-8">
+                                <h6>Tempered <br>Glass</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 card" style="margin-left: 5px;">
+                        <div class="row">
+                            <div class="col-4" text-align ="center">
+                                <img src="../static/image/icon/garansi.png" alt="">
+                            </div>
+                            <div class="col-8" style="padding-left: 25px;">
+                                <h6>Garansi <br>2 Minggu</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 gambar">
+                <img src="../static/image/lcd_pecah.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="teknisi">
+    <div class="container teknisi col-12">
+        <div class="row">
+            <div class="col-4 gambar">
+                <div class="gambar-teknisi">
+                    <img src="../static/image/teknisi.png">
+                </div>
+            </div>
+            <div class="col-5 teks">
+                <h1>Kami Ada Untuk Anda</h1>
+                <p>Perbaiki dan tingkatkan kinerja ponsel Anda dengan <b>Diskon 10%</b> khusus untuk pengguna baru. Layanan service terbaik untuk ponsel Anda!</p>
+            </div>
+            <div class="col-3 tombol">
+                <a href="">
+                    <button class="btn btn-chat"></i>Dapatkan Diskon</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

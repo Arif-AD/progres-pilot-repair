@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+       <div class="col-md-12 right-box">
+          <div class="row align-items-center">
+            <div class="header-text mb-4">
+                <img src="../static/image/logo.png">
+                <p>Silahkan Daftar terlebih dahulu</p>
+            </div>
+            <form method="post">
+                <div class="input-group mb-3">
+                    <input type="text" name="inpNama" class="form-control form-control-lg bg-light fs-6" placeholder="Nama Lengkap">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" name="inpEmail" class="form-control form-control-lg bg-light fs-6" placeholder="Alamat Email">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" name="inpNomor" class="form-control form-control-lg bg-light fs-6" placeholder="Nomor WhatsApp">
+                </div>
+                <div class="input-group mb-2">
+                    <input type="password" name="inpPass" class="form-control form-control-lg bg-light fs-6" placeholder="Kata Sandi">
+                </div>
+                <div class="input-group mb-5 d-flex justify-content-between lupa-sandi">
+                    <div class="forgot">
+                        <small><a href="#">Sudah Punya Akun ? Masuk Disini</a></small>
+                    </div>
+                </div>
+                <a id="tombol-login" href="/">
+                    <button type="submit" class="btn tombol btn-lg w-100 fs-6">Daftar</button>
+                </a>
+                <a id="login-google" href="/">
+                    <button class="btn tombol btn-lg w-100 fs-6"><img class="mr-3" src="../static/image/logo_google.png" style="width:20px" class="me-2">Daftar Dengan Akun Google</button>
+                </a>
+            </form>
+          </div>
+       </div> 
+      </div>
+    </div>
+</div>
+{% endblock %}

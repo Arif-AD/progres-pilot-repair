@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+       <div class="col-md-12 right-box">
+          <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <img src="../static/image/logo.png">
+                    <p>Silahkan masuk terlebih dahulu</p>
+                </div>
+                <form method="post">
+                    <div class="input-group mb-3 row">
+                        <input type="text" name="inpEmail" class="form-control form-control-lg bg-light fs-6" placeholder="Alamat Email">
+                        {% if email_error %}
+                            <p class="email-error-message text-danger">{{ email_error }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="input-group mb-1 row">
+                        <input type="password" name="inpPass" class="form-control form-control-lg bg-light fs-6" placeholder="Kata Sandi">
+                        {% if passwd_error %}
+                            <p class="passwd-error-message text-danger">{{ passwd_error }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="input-group mb-5 d-flex justify-content-between lupa-sandi">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="formCheck">
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Simpan Login</small></label>
+                        </div>
+                        <div class="forgot">
+                            <small><a href="#">Lupa Kata Sandi ?</a></small>
+                        </div>
+                    </div>
+                    <a id="tombol-login" href="/login">
+                        <button type="submit" class="btn tombol btn-lg w-100 fs-6">Login</button>
+                    </a>
+                    <a id="login-google" href="/">
+                        <button class="btn tombol btn-lg w-100 fs-6"><img class="mr-3" src="../static/image/logo_google.png" style="width:20px" class="me-2">Masuk Dengan Akun Google</button>
+                    </a>
+                </form>
+                <a id="daftar" href="/register">Belum punya akun ? Daftar Disini</a>
+          </div>
+       </div> 
+      </div>
+    </div>
+</div>
+<script>
+    function hideEmailErrorMessage() {
+        setTimeout(function () {
+            var emailError = document.querySelector('.email-error-message.text-danger');
+            if (emailError) {
+                emailError.style.display = 'none';
+            }
+        }, 3000);
+    }
+
+    function hidePasswdErrorMessage() {
+        setTimeout(function () {
+            var passwdError = document.querySelector('.passwd-error-message.text-danger');
+            if (passwdError) {
+                passwdError.style.display = 'none';
+            }
+        }, 3000);
+    }
+
+    window.onload = function () {
+        hideEmailErrorMessage();
+        hidePasswdErrorMessage();
+    }
+</script>
+
+{% endblock %}
